@@ -8,7 +8,7 @@ bot.on('ready', function() {
     console.log("Connected");
 });
 
-bot.login("NDQxOTk1NTc1ODQwNDczMDg4.Dc4YrA.OuwnNagiic8idLGpbLTpaBZbuDg");
+bot.login();
 
 bot.on('message', message => {
 
