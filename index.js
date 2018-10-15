@@ -1,22 +1,18 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+const Discord = require("discord.js");
+const bot = new Discord.Client({disableEveryone: true});
 
-var prefix = ("^")
+var prefix = ("")
 
-bot.on('ready', function() {
-    bot.user.setGame("By Nico | ^help");
-    console.log("Connected");
+bot.on("ready", async () => {
+  console.log(`Lanceur Echo : ${bot.user.username} est allumé sur ${bot.guilds.size} serveurs !`);
+
+  bot.user.setActivity("Développement Nico", {type: "WATCHING"});
+
+});
+
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
 });
 
 bot.login(process.env.TOKEN);
-
-bot.on('message', message => {
-
-    if (message.content === prefix + "avatar")
-    message.reply(message.author.avatarURL);
-
-    if (message.content === "Salut"){
-        message.reply("Bien le bonjour. :)");
-        console.log("Commande Salut effectué");
-    }
-});
